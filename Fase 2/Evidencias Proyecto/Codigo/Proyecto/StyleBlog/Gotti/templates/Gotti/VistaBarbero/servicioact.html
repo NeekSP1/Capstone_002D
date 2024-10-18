@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotti Barbería - Actualizar Servicio</title>
+    <link rel="stylesheet" href="stylesbarbero.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="contactobarbero.html">Contacto</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="horareserva.html">Hora Reservada</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+            <a href="carritobarbero.html"><img src="Image/carrito-de-compras (1).png" alt="Carrito" class="cart-icon"></a>
+        </nav>
+    </header>
+
+    <section class="logo-section">
+        <img src="Image/Gotti.jpg" alt="Logo Gotti" class="logo"><br><br>
+       
+    </section>
+
+    <!-- Servicio Card Section -->
+     <center>
+    <section class="servicio-section">
+        <div class="card">
+            <img id="servicio-imagen" src="Image/s1.png" alt="Corte de Cabello">
+            <div class="card-content">
+                <h3>Corte des Cabello</h3><br>
+                <p >$8.000</p><br>
+                <button onclick="goBack()">Atrás</button>
+                <button onclick="openForm()">Actualizar</button>
+            </div>
+        </div>
+    </section></center>
+    <br><br><br>
+
+    <!-- Formulario de actualización -->
+    <div id="updateForm" class="form-container" style="display: none;">
+        <h3>Actualizar Servicio</h3>
+        <label for="nombre">Nombre del Servicio:</label>
+        <input type="text" id="nombre" placeholder="Nuevo nombre">
+
+        <label for="precio">Precio:</label>
+        <input type="text" id="precio" placeholder="Nuevo precio">
+
+        <label for="imagen">URL de la Imagen:</label>
+        <input type="text" id="imagen" placeholder="URL de la nueva imagen">
+
+        <button onclick="updateService()">Guardar</button>
+        <button onclick="closeForm()">Cancelar</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Desde 2024. Gotti © Todos los Derechos Reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/gotti_barber/"><img src="Image/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="Image/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="Image/facebook.png" alt="Facebook"></a>
+        </div>
+    </footer>
+    <script>
+        function openForm() {
+            document.getElementById("updateForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("updateForm").style.display = "none";
+        }
+
+        function updateService() {
+            // Obtener los valores ingresados en el formulario
+            const nuevoNombre = document.getElementById("nombre").value;
+            const nuevoPrecio = document.getElementById("precio").value;
+            const nuevaImagen = document.getElementById("imagen").value;
+
+            // Actualizar los valores en la tarjeta del servicio
+            if (nuevoNombre) document.getElementById("servicio-nombre").innerText = nuevoNombre;
+            if (nuevoPrecio) document.getElementById("servicio-precio").innerText = "$" + nuevoPrecio;
+            if (nuevaImagen) document.getElementById("servicio-imagen").src = nuevaImagen;
+
+            // Cerrar el formulario
+            closeForm();
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+   
+
+</body>
+</html>

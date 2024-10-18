@@ -1,0 +1,434 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ8IDQ0NFREWFhURFRMYHSggGBolGxMTITEhMSkrLi4uFx8/OD8tNygtOisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAACAwEABAX/xAAiEAEBAQEAAQQCAwEAAAAAAAAAAQIREgMycbEicgQhMUH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A+5DkHKkgNycjJFMwHSHmOzFM5B2YpnLs5VzkGTKmctzlXOQGZOZOZUmQCZPOTmTmQCZOYUmTmQTmTmTmSmQDxZcq+LvEELkdZei5HWQea5DWXpuRuQeW5DWXp1kLkHl1lPWXq1lPWQeXWQuXpuU9ZB5rkLl6dZT1kHnsCxbWQsBKweKWDYCdcXGWAhj/AJ8KZg+n/k+J9K5gNzFc5ZmK4gNzlXOWZi2cgzOVc5dnKucgzOVc5dnKucgzOVJl0hyA6ZOZdw5AdMlMthQHTLZGxoM46wmAPBuVBoJ3I6yrYNBHWQ1lawNQENZTuXosCwHmuU9ZemxPWQebWU9ZenWUtZB5tZTuXo1lPWQee5CxfUTsBKwVLA4CXpT+p8RbMS9Gf1PiL4gHiLZg5i2IBZyrnLM5VzAbnKmcszFJAbIpIMhwCkOQZDgNhyDCgFGxjYBQhjQa5jgdWVtEHDWsAKNilCgnQ1FbAoJWBYrYGoCOonqL2J6gPPrKesvRYlqA82onqPRqJagIWArqJ2Al6PtnxPp6MRH0J+OfifT0YgK4i2InhbMA8xXMDKkA5Dg5OAWTgwoBwsjGwDhQIUApSBsoG3o9cBdd1nXdBvWdY4HMd0aDrRraNBlGttGgNGnQoBQ1DoaBKxPUWqeoCGolqL6iOoCOonxXUToI+h7c/E+npw838f25+J9PTgFsRbKOFsgrlSJ5OApk4nKcBSNgQgUjYEpSgcrYHSlA+tlDregcreh13QN3Q67oF11o9d0G9YzrLQaNrrWdBjK60aDrRraNoDaOioaoBQp0KCWktLaS0COomppOg838f25/XP09OHl/j38c/rPp6cA9GarmoYquaC2VM1LNOUFYUqcpQFJTlTjZQU6UqcID62UI2UD62UOtA/JvQaBdd0XAXXdFnQb11YwG2stZay0HdG1vRtB1o2uo0HUbW2haA0NUqGqA6qWj1UtUA0mWg6Dy/wAf25/WfT0Yeb0Pbn9Z9PTgF8K5RytkFcnAypALJwcw8wGwoyQpkGwo6ZKZBjYXi2YAY0vFswAuPwb4ADFPB3gCblPBngCbj8GeIBRU8RuQAafiNyAMpWDYAUadgUAoU6nQT0nqqaS0CeqmegBH0M/jn4n09OMh6Gfxz8T6ejEBucr4yOItkG5yrnLMqZB2cqTLocBkycy2QsgyZKZbIUgD4lIUjeAPi2Q5G8APFvibgDxd4nx3ADxZ4qcZYAeI8V4zgJXI3KrLASuRuVbB4CNyNwtYNBC5DWV6GgebWU9ZenSeoDy6yjqPXqI6gPLqBx6NZDxAPR9ufifS2UvR9s+J9K5oLZVzUM1TOgXzVM1DOlc6BaVSVDNUzQWlPKUp5oKQspzRygbRlb0DjRlbAa1jQc5zgc5zAcxvR6DuDW2jQZRrbQtBmhrrRugZQ1W6qdoDqhW3QaoBqp6LVCgFjJCrswHm9P25+J9KSo+nfxnxFJQVyeajKcoL50pmvPmqZ0D0Z0edPPNHNA9Mp50880c0D0SnNPPNHNAvKU0jNFNAtK2VKaKUFOt6HW9A3B13QPrLR6y0CtG1nRugbaNo3Q3QNtG0boLoCuguhuhugbdJ3TLodaB1qdrrRtBmqNrrWAytjGWg83p+2fEOVzgKFHOApSla4CzTmmuA5o5pzgOaOaY4DmjmnOApoppzgKaLyc4HeTvJzgddDdOcDPILpzgG6C6c4AuhunOAbpO6c4BtC1zgZaNrnANY5wMDf+ucD//Z);
+    background-repeat: no-repeat;
+    
+    background-size: cover;
+    background-position-y:385px;
+}
+
+/* Navbar */
+.header {
+    background-color: #1E1E1E;
+    padding: 30px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20px
+}
+
+.navbar li {
+    margin-right: 15px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.cart-icon {
+    width: 40px;
+    padding-left: 95%;
+    
+}
+
+/* Logo Section */
+.logo-section {
+    text-align: center;
+    
+}
+
+.logo {
+    width: 100%; /* El logo ocupa todo el ancho */
+    height: auto; /* Mantiene la proporción */
+    max-height: 250px; /* Limita la altura del logo */
+    display: block;
+    object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor sin distorsionarse */
+}
+
+/* Content Section */
+.content-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.content-item {
+    position: relative;
+    width: 100%;
+}
+
+.content-item img {
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay h2 {
+    margin: 10px 0;
+    
+}
+
+.overlay button {
+    padding: 10px 20px;
+    border: none;
+
+    background-color: #131111;
+    background-color: transparent;
+    color: #ffffff;
+    border: solid 1px #f9f7d573;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.overlay button:hover {
+background-color:#f9f7d53b ;
+}
+
+
+/* Contacto Section */
+.contact-section {
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+.contact-img {
+    width: 100%;
+    height: auto;
+    opacity: 0.7;
+}
+
+.contact-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.contact-info h2, .contact-info p {
+    margin: 5px 0;
+}
+
+.contact-info hr {
+    border: 1px solid #fff;
+    width: 10%;
+    margin: 10px auto;
+}
+
+/* Servicios Section */
+.servicios-section {
+    text-align: center;
+    padding: 30px;
+    
+}
+
+.servicios-section h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000;
+}
+.servicios-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.servicios-section p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Card Container */
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 130px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    
+}
+.cardinf {
+    background-color: white;
+    width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    
+}
+.cardinf img {
+    width: auto;
+    height: 200px;
+    border-radius: 5px;
+}
+.card img {
+    width: 100%;
+    height: 200px;
+}
+
+.card-content {
+    padding: 15px;
+    color: #000;
+    text-decoration: none;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-decoration: none;
+}
+
+
+.card-content p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+/* Reservar Button */
+.card-content button {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-content button:hover {
+    background-color: #555;
+}
+
+/* datos section */
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.reservation-section {
+    display: flex;
+    background-color:#fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.reservation-form {
+    padding: 20px;
+}
+
+.reservation-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #000000;
+}
+
+.reservation-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #000;
+}
+
+.reservation-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.reserve-button, .back-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.reserve-button:hover, .back-button:hover {
+    background-color: #555;
+}
+
+.barber-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #000;
+}
+
+.barber-info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.barber-name {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Carrito de Compras */
+.carrito {
+    background-color: #f1f1f1;
+    width: 80%;
+    margin: 0 auto;
+    padding: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carrito h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ccc;
+    color: #000;
+}
+
+th {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: #000;
+}
+
+/* Botones */
+.eliminar {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.continuar, .pagar {
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+}
+
+.continuar {
+    background-color: #1A1A1A;
+}
+
+.pagar {
+    background-color: #5cb85c;
+}
+
+.total-final {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-left: 30%;
+    color: #000;
+}
+
+/* Footer */
+footer {
+    background-color: #1A1A1A;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+.social-icons img {
+    width: 20px;
+    margin: 0 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: #1E1E1E;
+    text-align: center;
+    padding: 15px;
+}
+
+.social-icons img {
+    width: 24px;
+    margin: 0 10px;
+}
+
