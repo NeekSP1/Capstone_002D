@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotti Barbería - Actualizar Servicio</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Gotti/css/stylesbarbero' %}">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'indexbarbero' %}">Inicio</a></li>
+                <li><a href="{% url 'contactobarbero' %}">Contacto</a></li>
+                <li><a href="{% url 'serviciosbarbero' %}">Servicios</a></li>
+                <li><a href="{% url 'productosbarbero' %}">Productos</a></li>
+                <li><a href="{% url 'horareserva' %}">Hora Reservada</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+            <a href="{% url 'carritobarbero' %}"><img src="{% static 'Gotti/img/vistaBarbero/carrito-de-compras (1).png' %}" alt="Carrito" class="cart-icon"></a>
+        </nav>
+    </header>
+
+    <section class="logo-section">
+        <img src="{% static 'Gotti/img/vistaBarbero/Gotti.jpg' %}" alt="Logo Gotti" class="logo"><br><br>
+       
+    </section>
+
+    <!-- Servicio Card Section -->
+     <center>
+    <section class="servicio-section">
+        <div class="card">
+            <img id="servicio-imagen" src="{% static 'Gotti/img/vistaBarbero/p3.png' %}" alt="Corte de Cabello">
+            <div class="card-content">
+                <h3>Pulverizador Whisky Silver</h3><br>
+                <p >$5.000</p><br>
+                <a href="{% url 'serviciosbarbero' %}"><button>Atrás</button></a>
+                <a href="#"></a><button >Actualizar</button>
+            </div>
+        </div>
+    </section></center>
+    <br><br><br>
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Desde 2024. Gotti © Todos los Derechos Reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/gotti_barber/"><img src="{% static 'Gotti/img/vistaBarbero/instagram.png' %}" alt="Instagram"></a>
+            <a href="#"><img src="{% static 'Gotti/img/vistaBarbero/twitter.png' %}" alt="Twitter"></a>
+            <a href="#"><img src="{% static 'Gotti/img/vistaBarbero/facebook.png' %}" alt="Facebook"></a>
+        </div>
+    </footer>
+
+   
+
+</body>
+</html>

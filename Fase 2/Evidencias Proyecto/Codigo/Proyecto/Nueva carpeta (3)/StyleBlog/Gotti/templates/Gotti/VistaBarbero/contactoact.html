@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Gotti Barbería</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Gotti/css/stylesbarbero' %}">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'indexbarbero' %}">Inicio</a></li>
+                <li><a href="{% url 'contactobarbero' %}">Contacto</a></li>
+                <li><a href="{% url 'serviciosbarbero' %}">Servicios</a></li>
+                <li><a href="{% url 'productosbarbero' %}">Productos</a></li>
+                <li><a href="{% url 'horareserva' %}">Hora Reservada</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+            <a href="{% url 'carritobarbero' %}"><img src="{% static 'Gotti/img/vistaBarbero/carrito-de-compras (1).png' %}" alt="Carrito" class="cart-icon"></a>
+        </nav>
+    </header>
+    
+    <section class="logo-section">
+        <img src="{% static 'Gotti/img/vistaBarbero/Gotti.jpg' %}" alt="Logo Gotti" class="logo">
+        
+    </section>
+    
+    <!-- Sección de contacto con actualización de información -->
+    <section class="contact-section">
+        <img src="{% static 'Gotti/img/vistaBarbero/fondocontacto.jpg' %}" alt="Barbero atendiendo" class="contact-img">
+        <div class="contact-info">
+            <h2>Sucursal</h2><br>
+            <p>MAIPÚ</p><br>
+            <hr><br>
+            <p>Las Águilas 859 Santiago</p><br><br>
+            <p>E-mail</p><br>
+            <p>Gottibarber@gmail.com</p><br>
+            <hr><br>
+            <p>Número</p><br>
+            <p>+569 3847 3849</p>
+            <a href="{% url 'contactoact' %}"><button class="buttonc" >Actualizar</button></a>
+        </div>
+    </section>
+
+    <!-- Formulario para actualizar información -->
+    <div class="update-form">
+        <h3>Actualizar Información</h3>
+        <label for="new-location">Sucursal:</label>
+        <input type="text" id="new-location" placeholder="Nueva sucursal">
+        
+        <label for="new-address">Dirección:</label>
+        <input type="text" id="new-address" placeholder="Nueva dirección">
+        
+        <label for="new-email">E-mail:</label>
+        <input type="email" id="new-email" placeholder="Nuevo e-mail">
+        
+        <label for="new-number">Número:</label>
+        <input type="text" id="new-number" placeholder="Nuevo número">
+        
+        <button onclick="updateContactInfo()">Actualizar Información</button>
+    </div>
+
+    <footer class="footer">
+        <p>Desde 2024. Gotti © Todos los Derechos Reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/gotti_barber/"><img src="{% static 'Gotti/img/vistaBarbero/instagram.png' %}" alt="Instagram"></a>
+            <a href="#"><img src="{% static 'Gotti/img/vistaBarbero/twitter.png' %}" alt="Twitter"></a>
+            <a href="#"><img src="{% static 'Gotti/img/vistaBarbero/facebook.png' %}" alt="Facebook"></a>
+        </div>
+    </footer>
+
+    <script>
+        function updateContactInfo() {
+            // Obtener valores de los campos de entrada
+            const newLocation = document.getElementById('new-location').value;
+            const newAddress = document.getElementById('new-address').value;
+            const newEmail = document.getElementById('new-email').value;
+            const newNumber = document.getElementById('new-number').value;
+            
+            // Actualizar el contenido del contacto
+            if (newLocation) document.getElementById('sucursal-location').textContent = newLocation;
+            if (newAddress) document.getElementById('direccion').textContent = newAddress;
+            if (newEmail) document.getElementById('email').textContent = newEmail;
+            if (newNumber) document.getElementById('numero').textContent = newNumber;
+        }
+    </script>
+</body>
+</html>

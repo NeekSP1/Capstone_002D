@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotti Barbería - Carrito de Compras</title>
+    <link rel="stylesheet" href="{% static 'Gotti/css/stylesCliente.css' %}">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'indexCliente' %}">Inicio</a></li>
+                <li><a href="{% url 'contactoCliente' %}">Contacto</a></li>
+                <li><a href="{% url 'serviciosCliente'  %}">Servicios</a></li>
+                <li><a href="{% url 'productosCliente' %}">Productos</a></li>
+                <li><a href="{% url 'inicioCliente' %}">Blog</a></li>
+            </ul>
+            <a href="{% url 'carritoCliente' %}"> <img src="{% static 'Gotti/img/vistaCliente/carrito-de-compras (1).png' %}" alt="Carrito" class="cart-icon"></a>
+        </nav>
+    </header>
+    <section class="logo-section">
+        <img src="{% static 'Gotti/img/vistaCliente/vistaCliente/Gotti.jpg' %}" alt="Logo Gotti" class="logo">
+        
+    </section>
+
+     <!-- Carrito de Compras -->
+     <!-- Carrito de Compras -->
+     <section class="carrito">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <!-- Las filas de productos vendrán del backend -->
+                <tr>
+                    <td>Navaja</td>
+                    <td>$5.000</td>
+                    <td>
+                        <input type="number" value="1" min="1">
+                    </td>
+                    <td>$5.000</td>
+                    <td><button class="eliminar">Eliminar</button></td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <!-- Las filas de productos vendrán del backend -->
+                <tr>
+                    <td><!-- Nombre del producto --></td>
+                    <td><!-- Precio del producto --></td>
+                    <td>
+                        <input type="number" value="1" min="1">
+                    </td>
+                    <td><!-- Total del producto --></td>
+                    <td><button class="eliminar">Eliminar</button></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <!-- Las filas de productos vendrán del backend -->
+                <tr>
+                    <td><!-- Nombre del producto --></td>
+                    <td><!-- Precio del producto --></td>
+                    <td>
+                        <input type="number" value="1" min="1">
+                    </td>
+                    <td><!-- Total del producto --></td>
+                    <td><button class="eliminar">Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Botones y total fuera de la tabla -->
+        <div class="acciones">
+            <a href="{% url 'productosCliente' %}" style="text-decoration: none;"><button class="continuar">Continuar comprando</button></a>
+            <span class="total-final">Total: $5.000</span>
+            <button class="pagar">Pagar</button>
+        </div>
+    </section>
+    
+        
+    <footer class="footer">
+        <p>Desde 2024. Gotti © Todos los Derechos Reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/gotti_barber/"><img src="{% static 'Gotti/img/vistaCliente/instagram.png' %}" alt="Instagram"></a>
+            <a href="#"><img src="{% static 'Gotti/img/vistaCliente/twitter.png' %}" alt="Twitter"></a>
+            <a href="#"><img src="{% static 'Gotti/img/vistaCliente/facebook.png' %}" alt="Facebook"></a>
+        </div>
+    </footer>
+</body>
+</html>

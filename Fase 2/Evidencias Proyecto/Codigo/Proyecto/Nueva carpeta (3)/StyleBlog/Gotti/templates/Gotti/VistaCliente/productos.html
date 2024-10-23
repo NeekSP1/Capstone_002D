@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotti Barbería - Carrito de Compras</title>
+    <link rel="stylesheet" href="{% static 'Gotti/css/stylesCliente.css' %}">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'indexCliente' %}">Inicio</a></li>
+                <li><a href="{% url 'contactoCliente' %}">Contacto</a></li>
+                <li><a href="{% url 'serviciosCliente'  %}">Servicios</a></li>
+                <li><a href="{% url 'productosCliente' %}">Productos</a></li>
+                <li><a href="{% url 'inicioCliente' %}">Blog</a></li>
+            </ul>
+            <a href="{% url 'carritoCliente' %}"> <img src="{% static 'Gotti/img/vistaCliente/carrito-de-compras (1).png' %}" alt="Carrito" class="cart-icon"></a>
+        </nav>
+    </header>
+    <section class="logo-section">
+        <img src="{% static 'Gotti/img/vistaCliente/Gotti.jpg' %}" alt="Logo Gotti" class="logo">
+        
+    </section>
+    <!-- Servicios Section -->
+    <section class="servicios-section">
+        <h2>Productos</h2><br>
+        
+
+        <!-- Cards Container -->
+        <div class="card-container">
+            <!-- Card 1 -->
+            <div class="card">
+                <a href="#"><img src="{% static 'Gotti/img/vistaCliente/p1.png' %}" alt="Corte de Cabello"></a>
+                <div class="card-content">
+                    <h3>Navaja</h3><br>
+                    <p>$3.000</p><br><br>
+                    <a href="#"><button>Comprar</button></a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="{% static 'Gotti/img/vistaCliente/p2.png' %}" alt="Perfilado de Barba">
+                <div class="card-content">
+                    <h3>Sea Salt Spray</h3><br>
+                    <p>$8.000</p><br><br>
+                    <button>Comprar</button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="{% static 'Gotti/img/vistaCliente/p3.png' %}" alt="Perfilado de Cejas">
+                <div class="card-content">
+                    <h3>Pulverizador Whisky Silver</h3><br>
+                    <p>$5.000</p><br><br>
+                    <button>Comprar</button>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Desde 2024. Gotti © Todos los Derechos Reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/gotti_barber/"><img src="{% static 'Gotti/img/vistaCliente/instagram.png' %}" alt="Instagram"></a>
+            <a href="#"><img src="{% static 'Gotti/img/vistaCliente/twitter.png' %}" alt="Twitter"></a>
+            <a href="#"><img src="{% static 'Gotti/img/vistaCliente/facebook.png' %}" alt="Facebook"></a>
+        </div>
+    </footer>
+</body>
+</html>
