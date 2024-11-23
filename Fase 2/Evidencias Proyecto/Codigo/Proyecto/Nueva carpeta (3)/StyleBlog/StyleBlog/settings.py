@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -76,8 +78,12 @@ WSGI_APPLICATION = 'StyleBlog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Motor de la base de datos
-        'NAME': BASE_DIR / 'db.sqlite3',         # Nombre de la base de datos (archivo SQLite)
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'styleblog',
+        'USER': 'root',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',  # O la IP del servidor si no es local
+        'PORT': '3306',  # El puerto por defecto de MySQL
     }
 }
 
@@ -116,9 +122,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/iniciarCliente/'
+
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'fbarrosquezada@gmail.com'
+EMAIL_HOST_PASSWORD = 'kcix bmtv kyco zxar'

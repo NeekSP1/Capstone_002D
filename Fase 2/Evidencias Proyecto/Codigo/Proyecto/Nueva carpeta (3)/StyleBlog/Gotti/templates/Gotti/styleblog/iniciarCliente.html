@@ -6,8 +6,7 @@
     <title>Style Blog - Iniciar Sesión Cliente</title>
     {% load static %}
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'Gotti/css/form.css' %}">
-    <link rel="stylesheet" href="{% static 'Gotti/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'Gotti/css/inicio.css' %}">
 </head>
 <body>
     <header>
@@ -20,37 +19,47 @@
             </ul>
             <div class="user-menu">
                 <button onclick="window.location.href='{% url 'iniciarSesion' %}';">Iniciar Sesión</button>
-                <button onclick="window.location.href='{% url 'registrarse' %}';">Registrarse</button>
+                <button onclick="window.location.href='{% url 'registrarse_como' %}';">Registrarse</button>
             </div>
         </nav>
     </header>
-
+<br><br>
     <div class="register-form-container">
         <img src="{% static 'Gotti/img/inicio.png' %}" alt="Imagen de perfil" class="profile-image">
-        <form method="POST" action="{% url 'iniciarCliente' %}">
+        <form method="POST">
             {% csrf_token %}
             <div class="form-group-wides">
-                <label for="email">Correo Electrónico</label>
+                <label for="correoElectronico">Correo Electrónico</label>
                 <input type="email" id="email" name="email" class="inputc" required>
             </div>
             <br>
             <div class="form-group-wides">
-                <label for="password">Contraseña</label>
+                <label for="contraseña">Contraseña</label>
                 <br>
                 <input type="password" id="password" name="password" class="inputc" required>
             </div>
-            <br>
-            <button type="submit">Iniciar Sesión</button>
+            <button class="buttons" type="submit">Iniciar Sesión</button>
         </form>
+
+        
     </div>
+
+
+{% if messages %}
+<ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
     <footer>
         <div class="footer-content">
             <p>&copy; 2024 Mi Página. Todos los derechos reservados.</p>
             <div class="social-media">
-                <a href="#"><img src="{% static 'Gotti/img/instagram-icon.png' %}" alt="Instagram"></a>
-                <a href="#"><img src="{% static 'Gotti/img/twitter-icon.png' %}" alt="Twitter"></a>
-                <a href="#"><img src="{% static 'Gotti/img/facebook-icon.png' %}" alt="Facebook"></a>
+                <a href="https://www.instagram.com/gotti_barber/"><img src="{% static 'Gotti/img/vista/instagram.png' %}" alt="Instagram"></a>
+                <a href="#"><img src="{% static 'Gotti/img/vista/x.png' %}" alt="X"></a>
+                <a href="#"><img src="{% static 'Gotti/img/vista/facebook.png' %}" alt="Facebook"></a><br>
             </div>
         </div>
     </footer>

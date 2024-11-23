@@ -4,8 +4,8 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gotti Barbería - Carrito de Compras</title>
-    <link rel="stylesheet" href="{% static 'Gotti/css/stylesCliente.css' %}">
+    <title>Gotti Barbería - Productos</title>
+    <link rel="stylesheet" href="{% static 'Gotti/css/cliente/productoClientes.css' %}">
 </head>
 <body>
 
@@ -15,63 +15,68 @@
             <ul>
                 <li><a href="{% url 'indexCliente' %}">Inicio</a></li>
                 <li><a href="{% url 'contactoCliente' %}">Contacto</a></li>
-                <li><a href="{% url 'serviciosCliente'  %}">Servicios</a></li>
+                <li><a href="{% url 'servicio' %}">Servicios</a></li>
                 <li><a href="{% url 'productosCliente' %}">Productos</a></li>
                 <li><a href="{% url 'inicioCliente' %}">Blog</a></li>
             </ul>
-            <a href="{% url 'carritoCliente' %}"> <img src="{% static 'Gotti/img/vistaCliente/carrito-de-compras (1).png' %}" alt="Carrito" class="cart-icon"></a>
+            <a href="{% url 'carritoCliente' %}">
+                <img src="{% static 'Gotti/img/vista/carrito.png' %}" alt="Carrito" class="cart-icon">
+            </a>
         </nav>
     </header>
+
+    <!-- Logo -->
     <section class="logo-section">
-        <img src="{% static 'Gotti/img/vistaCliente/Gotti.jpg' %}" alt="Logo Gotti" class="logo">
-        
+        <img src="{% static 'Gotti/img/vista/logo.jpg' %}" alt="Logo Gotti" class="logo">
     </section>
-    <!-- Servicios Section -->
-    <section class="servicios-section">
-        <h2>Productos</h2><br>
-        
 
-        <!-- Cards Container -->
+    <!-- Productos Section -->
+    <section class="productos-section">
+        <h2>Productos Disponibles</h2>
         <div class="card-container">
-            <!-- Card 1 -->
-            <div class="card">
-                <a href="#"><img src="{% static 'Gotti/img/vistaCliente/p1.png' %}" alt="Corte de Cabello"></a>
-                <div class="card-content">
-                    <h3>Navaja</h3><br>
-                    <p>$3.000</p><br><br>
-                    <a href="#"><button>Comprar</button></a>
+            {% for producto in productos %}
+            <div class="card-wrapper">
+                <!-- Card del producto -->
+                <div class="card">
+                    <div class="image-container">
+                        {% if producto.imagen %}
+                        <img src="{{ producto.imagen.url }}" style="width:auto;"  alt="{{ producto.nombreProducto }}">
+                        {% else %}
+                        <img src="{% static 'Gotti/img/vistaCliente/default.png' %}" alt="Imagen no disponible">
+                        {% endif %}
+                        <!-- Descripción sobre la imagen -->
+                        <div class="descripcion-hover">
+                            <p>{{ producto.descripcion }}</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>{{ producto.nombreProducto }}</h3>
+                        <p class="precio"><strong>${{ producto.precio|floatformat:0 }}</strong></p>
+                        <p class="stock"><strong>Stock: {{ producto.stock }}</strong></p>
+                    </div>
+                </div>
+                <!-- Botones debajo del producto -->
+                <div class="card-buttons">
+                    <form action="{% url 'agregar_al_carrito' producto.idProducto %}" method="POST">
+                        {% csrf_token %}
+                        <input type="number" name="cantidad" value="1" min="1" max="{{ producto.stock }}" class="cantidad-producto">
+                        <button type="submit" class="btn-carrito">Añadir al carrito</button>
+                    </form>
                 </div>
             </div>
-
-            <!-- Card 2 -->
-            <div class="card">
-                <img src="{% static 'Gotti/img/vistaCliente/p2.png' %}" alt="Perfilado de Barba">
-                <div class="card-content">
-                    <h3>Sea Salt Spray</h3><br>
-                    <p>$8.000</p><br><br>
-                    <button>Comprar</button>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="card">
-                <img src="{% static 'Gotti/img/vistaCliente/p3.png' %}" alt="Perfilado de Cejas">
-                <div class="card-content">
-                    <h3>Pulverizador Whisky Silver</h3><br>
-                    <p>$5.000</p><br><br>
-                    <button>Comprar</button>
-                    
-                </div>
-            </div>
+            {% empty %}
+            <p>No hay productos disponibles en este momento.</p>
+            {% endfor %}
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>Desde 2024. Gotti © Todos los Derechos Reservados.</p>
         <div class="social-icons">
-            <a href="https://www.instagram.com/gotti_barber/"><img src="{% static 'Gotti/img/vistaCliente/instagram.png' %}" alt="Instagram"></a>
-            <a href="#"><img src="{% static 'Gotti/img/vistaCliente/twitter.png' %}" alt="Twitter"></a>
-            <a href="#"><img src="{% static 'Gotti/img/vistaCliente/facebook.png' %}" alt="Facebook"></a>
+            <a href="https://www.instagram.com/gotti_barber/"><img src="{% static 'Gotti/img/vista/instagram.png' %}" alt="Instagram"></a>
+            <a href="#"><img src="{% static 'Gotti/img/vista/x.png' %}" alt="Twitter"></a>
+            <a href="#"><img src="{% static 'Gotti/img/vista/facebook.png' %}" alt="Facebook"></a>
         </div>
     </footer>
 </body>
