@@ -1,0 +1,402 @@
+/* Reset básico */
+html, body {
+    height: 100%; /* Asegura que ocupen toda la altura de la ventana */
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Organiza el contenido verticalmente */
+}
+
+/* Contenido principal */
+.main-content {
+    flex: 1; /* Hace que el contenido principal ocupe todo el espacio restante */
+}
+
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background-color: #aeaeae;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Navbar */
+.header {
+    background-color: #1E1E1E;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Separa los elementos: menú a la izquierda, carrito a la derecha */
+    align-items: center; /* Alinea verticalmente los elementos */
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin-right: 30px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.cart-icon {
+    width: 40px;
+    margin-left: auto;
+}
+
+/* Logo Section */
+.logo-section {
+    text-align: center;
+}
+
+/* Logo Section */
+.logo-section {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px 0;
+}
+
+.logo {
+    max-height: 300px;
+    width: auto;
+}
+
+/* Content Section */
+.content-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card {
+    background-color: #f9f9f9;
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: #1E1E1E;
+}
+
+.carrito-admin {
+    width: 100%;
+}
+
+.carrito-admin h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #1E1E1E;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 17px;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.limpiar, .confirmar, .cancelar, .eliminar {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.limpiar {
+    background-color: #000000;
+    color: white;
+}
+
+.limpiar:hover {
+    background-color: #07550b;
+    transform: scale(1.05);
+}
+
+.confirmar {
+    background-color: #034a97;
+    color: white;
+}
+
+.confirmar:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.cancelar {
+    background-color: #640903;
+    color: white;
+}
+
+.cancelar:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+.eliminar {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.eliminar:hover {
+    background-color: #9a2323;
+    transform: scale(1.05);
+}
+
+.acciones {
+    display: flex;
+    justify-content: space-between; /* Distribuye elementos a los extremos */
+    align-items: center; /* Centra verticalmente los elementos */
+    margin-top: 20px;
+}
+
+.acciones .continuar {
+    margin-right: auto; /* Asegura que el botón Continuar esté alineado a la izquierda */
+}
+
+.acciones .pagar {
+    margin-left: auto; /* Asegura que el botón Reservar esté alineado a la derecha */
+}
+
+.total-final {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0 20px; /* Da espacio entre el total y los botones */
+}
+
+/* Footer */
+.footer {
+    background-color: #1E1E1E;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    margin-top: auto; /* Empuja el footer al final de la página */
+    font-size: 1.3em;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons img {
+    width: 35px;
+    margin: 0 10px;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+/* ------------------------------------------------------------------------------ */
+
+/* Mensajes emergentes */
+.messages {
+    position: fixed;
+    top: 50%; /* Centrado verticalmente */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste para centrar */
+    z-index: 1000; /* Por encima de otros elementos */
+    width: auto; /* Ajusta el ancho automáticamente */
+    max-width: 90%; /* Limita el ancho máximo */
+    text-align: center; /* Centra el texto */
+}
+
+/* Estilo base para cada mensaje */
+.message {
+    background-color: #f8d7da; /* Fondo rojo claro por defecto */
+    color: #721c24; /* Texto rojo oscuro */
+    border: 1px solid #f5c6cb; /* Borde rojo claro */
+    border-radius: 5px;
+    padding: 15px 25px; /* Más espaciado para destacar */
+    margin-bottom: 10px;
+    font-size: 18px; /* Fuente un poco más grande */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+    text-align: center;
+    animation: fadeOut 3s forwards; /* Animación para desaparecer */
+}
+
+/* Estilo para mensajes de éxito */
+.message.success {
+    background-color: #d4edda; /* Fondo verde claro */
+    color: #155724; /* Texto verde oscuro */
+    border: 1px solid #c3e6cb; /* Borde verde claro */
+}
+
+/* Estilo para mensajes de advertencia */
+.message.warning {
+    background-color: #fff3cd; /* Fondo amarillo claro */
+    color: #856404; /* Texto amarillo oscuro */
+    border: 1px solid #ffeeba; /* Borde amarillo claro */
+}
+
+/* Estilo para mensajes de error */
+.message.error {
+    background-color: #f8d7da; /* Fondo rojo claro */
+    color: #721c24; /* Texto rojo oscuro */
+    border: 1px solid #f5c6cb; /* Borde rojo claro */
+}
+
+/* Animación para desaparecer */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Clase adicional para desaparición suave */
+.message.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Transición suave */
+}
+
+/* ------------------------------------------------------------------------------ */
+
+/* Estilo para el Modal */
+.modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro con opacidad */
+    padding-top: 60px;
+    text-align: center;
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #fff; /* Fondo blanco */
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #000000; /* Borde negro */
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Color del título dentro del modal */
+#modalTitle {
+    color: #333333; /* Cambia el color según tu preferencia */
+}
+
+/* Color del mensaje dentro del modal */
+#modalMessage {
+    color: #555555; /* Cambia el color según tu preferencia */
+}
+
+
+/* Botón cerrar */
+.close {
+    color: #000000;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-family: Arial, sans-serif;
+}
+
+/* Cambia color cuando el ratón pasa por encima */
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Botones del modal */
+.modal-buttons {
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    margin: 0 10px;
+}
+
+.btn-secondary {
+    background-color: #000000; /* Botón negro */
+    color: white;
+}
+
+.btn-secondary:hover {
+    opacity: 0.8;
+}
+
+.btn-danger {
+    background-color: #d32f2f; /* Rojo */
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #9a2323; /* Rojo más oscuro */
+    transform: scale(1.05);
+}

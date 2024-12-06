@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotti Barbería - Pedidos de Clientes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Gotti/css/barbero/carrito.css' %}">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'indexbarbero' %}">Inicio</a></li>
+                <li><a href="{% url 'contactobarbero' %}">Contacto</a></li>
+                <li><a href="{% url 'serviciosbarbero' %}">Servicios</a></li>
+                <li><a href="{% url 'productosbarbero' %}">Productos</a></li>
+                <li><a href="{% url 'horas_reservadas' %}">Horas Reservadas</a></li>
+                <li><a href="{% url 'inicioColaborador' %}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="logo-section">
+        <img src="{% static 'Gotti/img/vista/logo.jpg' %}" alt="Logo Gotti" class="logo">
+    </section>
+
+    <!-- Mensajes Emergentes -->
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Pedidos por Confirmar -->
+    <div class="card">
+        <section class="carrito-admin">
+            <h2>Pedidos por Confirmar</h2>
+            <form id="form-pedidos-por-confirmar" method="POST" action="{% url 'confirmar_pedido' %}">
+                {% csrf_token %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Seleccionar</th>
+                            <th>Nombre del Cliente</th>
+                            <th>Correo Electrónico</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Subtotal</th>
+                            <th>Estado Pedido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for pedido in pedidos_por_confirmar %}
+                            {% for producto in pedido.productos %}
+                            <tr>
+                                {% if forloop.first %}
+                                    <td rowspan="{{ pedido.productos|length }}">
+                                        <input type="checkbox" name="seleccionados" value="{{ pedido.carrito_id }}">
+                                    </td>
+                                    <td rowspan="{{ pedido.productos|length }}">{{ pedido.cliente.nombre }}</td>
+                                    <td rowspan="{{ pedido.productos|length }}">{{ pedido.cliente.correoElectronico }}</td>
+                                {% endif %}
+                                <td>{{ producto.nombre }}</td>
+                                <td>{{ producto.cantidad }}</td>
+                                <td>${{ producto.precio_unitario|floatformat:0 }}</td>
+                                <td>${{ producto.subtotal|floatformat:0 }}</td>
+                                <td>
+                                    <span style="font-weight: bold; color: orange;">Pendiente de Confirmación</span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="8" style="text-align: right; font-weight: bold;">Total del Pedido: ${{ pedido.total|floatformat:0 }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="8">No hay pedidos pendientes actualmente.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="button-container">
+                    <button type="button" class="confirmar" onclick="confirmarSeleccionados()">Confirmar seleccionados</button>
+                    <button type="button" class="cancelar" onclick="cancelarSeleccionados()">Cancelar seleccionados</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <!-- Pedidos Confirmados -->
+    <div class="card">
+        <section class="carrito-admin">
+            <h2>Pedidos Confirmados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre del Cliente</th>
+                        <th>Correo Electrónico</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Subtotal</th>
+                        <th>Total Pedido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pedido in pedidos_confirmados %}
+                        {% for producto in pedido.productos %}
+                        <tr>
+                            {% if forloop.first %}
+                                <td rowspan="{{ pedido.productos|length }}">{{ pedido.cliente.nombre }}</td>
+                                <td rowspan="{{ pedido.productos|length }}">{{ pedido.cliente.correoElectronico }}</td>
+                            {% endif %}
+                            <td>{{ producto.nombre }}</td>
+                            <td>{{ producto.cantidad }}</td>
+                            <td>${{ producto.precio_unitario|floatformat:0 }}</td>
+                            <td>${{ producto.subtotal|floatformat:0 }}</td>
+                            {% if forloop.first %}
+                                <td rowspan="{{ pedido.productos|length }}">${{ pedido.total|floatformat:0 }}</td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    {% empty %}
+                        <tr>
+                            <td colspan="7">No hay pedidos confirmados actualmente.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>Desde 2024. Gotti © Todos los Derechos Reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/gotti_barber/"><img src="{% static 'Gotti/img/vista/instagram.png' %}" alt="Instagram"></a>
+            <a href="#"><img src="{% static 'Gotti/img/vista/x.png' %}" alt="X"></a>
+            <a href="#"><img src="{% static 'Gotti/img/vista/facebook.png' %}" alt="Facebook"></a>
+        </div>
+    </footer>
+
+    <script>
+        function getSelectedCarritoIds() {
+            const selectedCarritoIds = [];
+            const checkboxes = document.querySelectorAll('input[name="seleccionados"]:checked');
+            checkboxes.forEach(function (checkbox) {
+                selectedCarritoIds.push(checkbox.value);
+            });
+            return selectedCarritoIds;
+        }
+
+        function confirmarSeleccionados() {
+            const selectedCarritoIds = getSelectedCarritoIds();
+            if (selectedCarritoIds.length === 0) {
+                alert("Por favor, selecciona al menos un pedido para confirmar.");
+                return;
+            }
+            enviarSeleccionados("{% url 'confirmar_pedido' %}", selectedCarritoIds);
+        }
+
+        function cancelarSeleccionados() {
+            const selectedCarritoIds = getSelectedCarritoIds();
+            if (selectedCarritoIds.length === 0) {
+                alert("Por favor, selecciona al menos un pedido para cancelar.");
+                return;
+            }
+            enviarSeleccionados("{% url 'cancelar_pedido' %}", selectedCarritoIds);
+        }
+
+        function enviarSeleccionados(url, seleccionados) {
+            const form = document.createElement("form");
+            form.method = "POST";
+            form.action = url;
+
+            const csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+            const csrfInput = document.createElement("input");
+            csrfInput.type = "hidden";
+            csrfInput.name = "csrfmiddlewaretoken";
+            csrfInput.value = csrfToken;
+            form.appendChild(csrfInput);
+
+            const seleccionadosInput = document.createElement("input");
+            seleccionadosInput.type = "hidden";
+            seleccionadosInput.name = "seleccionados";
+            seleccionadosInput.value = JSON.stringify(seleccionados);
+            form.appendChild(seleccionadosInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+</body>
+</html>
